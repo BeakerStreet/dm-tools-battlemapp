@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Current Image</title>
+  <style>
+    body { margin:0; font-family: system-ui, Arial, sans-serif; background:#121212; color:#eee; display:flex; min-height:100vh; }
+    .container { margin:auto; width:90vw; max-width:1200px; }
+    img { display:block; max-width:100%; height:auto; border-radius:4px; box-shadow:0 4px 16px rgba(0,0,0,0.4); }
+    .placeholder { padding:2rem; text-align:center; border:2px dashed #444; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% if image_filename %}
+      <img src="{{ url_for('static', filename='images/current/' + image_filename) }}" alt="Current Image" />
+    {% else %}
+      <div class="placeholder">No image found in current folder.</div>
+    {% endif %}
+  </div>
+</body>
+</html>
